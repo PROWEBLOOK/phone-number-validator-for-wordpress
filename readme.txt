@@ -43,7 +43,7 @@ Please see the Frequently Asked Questions section.
 = Getting Started =
 
 The plugin requires an API Key. Please sign up for an account at 
-https://proweblook.com/free-trial-registration.html (no credit card required). 
+https://proweblook.com/auth/signup (no credit card required). 
 The trial account comes with 100 free credits.
 
 == Frequently Asked Questions ==
@@ -72,8 +72,8 @@ This plugin is free, but to use our service and the API after the free trial you
 1. Unzip and upload the plugin to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Configure the plugin in the Settings section of the Administrator Dashboard.
-4. Register for an API key and get 100 free credits (no credit card required):
-https://proweblook.com/free-trial-registration.html
+4. Register for an API key and get 10 free credits (no credit card required):
+https://proweblook.com/auth/signup
 5. Copy and paste your API key to the Settings section of the Administrator Dashboard.
 
 If you need help, just send us a quick email to support@Proweblook.com.
