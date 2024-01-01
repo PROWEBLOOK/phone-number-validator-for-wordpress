@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main API
  *
@@ -8,7 +9,8 @@
 /**
  * Class PROP_API
  */
-class PROP_API {
+class PROP_API
+{
 
 	/**
 	 * The API endpoint
@@ -50,36 +52,37 @@ class PROP_API {
 	 *
 	 * @return null|object
 	 */
-	public function request( $country_code = '' ) {
+	public function request($country_code = '')
+	{
 
-		$response = wp_cache_get( $this->get_phone(), 'prop' );
-		if ( $response ) {
-			return $this->set_response( $response );
+		$response = wp_cache_get($this->get_phone(), 'prop');
+		if ($response) {
+			return $this->set_response($response);
 		}
 
 		$args = array(
 			'method'   => 'POST',
 			'timeout'  => 45,
 			'blocking' => TRUE,
-		    'body'     => array(
-				'PhoneNumber' => $this->get_phone(),
+			'body'     => array(
+				'phone_number' => $this->get_phone(),
 				'APIKey'      => $this->get_apikey(),
 				'PluginVersion' => PROP_PLUGIN_CURRENT_VERSION
 			)
 		);
 
-		if ( ! empty( $this->get_country_code() ) ) {
-			$args['body']['CountryCode'] = $this->get_country_code();
+		if (!empty($this->get_country_code())) {
+			$args['body']['country_code'] = $this->get_country_code();
 		}
-		if ( ! empty( $country_code ) ) {
-			$args['body']['CountryCode'] = $country_code;
+		if (!empty($country_code)) {
+			$args['body']['country_code'] = $country_code;
 		}
 
-		$result = wp_remote_post( $this->endpoint, $args );
+		$result = wp_remote_post($this->endpoint, $args);
 
-		if ( ! is_wp_error( $result ) ) {
-			$response = $this->set_response( json_decode( wp_remote_retrieve_body( $result ) ) );
-			wp_cache_set( $this->get_phone(), $response, 'prop', 86400); // cache 24h
+		if (!is_wp_error($result)) {
+			$response = $this->set_response(json_decode(wp_remote_retrieve_body($result)));
+			wp_cache_set($this->get_phone(), $response, 'prop', 86400); // cache 24h
 			return $response;
 		}
 		return NULL;
@@ -90,7 +93,8 @@ class PROP_API {
 	 *
 	 * @return string
 	 */
-	public function get_endpoint() {
+	public function get_endpoint()
+	{
 
 		return $this->endpoint;
 	}
@@ -102,7 +106,8 @@ class PROP_API {
 	 *
 	 * @return string
 	 */
-	public function set_endpoint( $endpoint ) {
+	public function set_endpoint($endpoint)
+	{
 
 		$this->endpoint = (string) $endpoint;
 		return $this->get_endpoint();
@@ -113,7 +118,8 @@ class PROP_API {
 	 *
 	 * @return string
 	 */
-	public function get_phone() {
+	public function get_phone()
+	{
 
 		return $this->phone;
 	}
@@ -125,10 +131,11 @@ class PROP_API {
 	 *
 	 * @return string
 	 */
-	public function set_phone( $phone ) {
+	public function set_phone($phone)
+	{
 
-		$phone = trim( (string) $phone );
-		$this->phone = preg_replace( '/^00/', '+', $phone );
+		$phone = trim((string) $phone);
+		$this->phone = preg_replace('/^00/', '+', $phone);
 		return $this->get_phone();
 	}
 
@@ -137,7 +144,8 @@ class PROP_API {
 	 *
 	 * @return string
 	 */
-	public function get_country_code() {
+	public function get_country_code()
+	{
 
 		return $this->country_code;
 	}
@@ -149,7 +157,8 @@ class PROP_API {
 	 *
 	 * @return string
 	 */
-	public function set_country_code( $code ) {
+	public function set_country_code($code)
+	{
 
 		$this->country_code = (string) $code;
 		return $this->get_country_code();
@@ -160,7 +169,8 @@ class PROP_API {
 	 *
 	 * @return string
 	 */
-	public function get_apikey() {
+	public function get_apikey()
+	{
 
 		return $this->apikey;
 	}
@@ -172,7 +182,8 @@ class PROP_API {
 	 *
 	 * @return string
 	 */
-	public function set_apikey( $apikey ) {
+	public function set_apikey($apikey)
+	{
 
 		$this->apikey = (string) $apikey;
 		return $this->get_apikey();
@@ -183,7 +194,8 @@ class PROP_API {
 	 *
 	 * @return object
 	 */
-	public function get_response() {
+	public function get_response()
+	{
 
 		return $this->response;
 	}
@@ -195,7 +207,8 @@ class PROP_API {
 	 *
 	 * @return object
 	 */
-	public function set_response( $response ) {
+	public function set_response($response)
+	{
 
 		$this->response = (object) $response;
 		return $this->get_response();
