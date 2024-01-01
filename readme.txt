@@ -29,7 +29,7 @@ The plugin can also be easily integrated into any 3rd party form.
 How does it work?
 
 The Phone-Validator real-time validation API provides detailed information for each phone number:
-* Status: VALID/CONFIRMED, VALID/UNCONFIRMED or INVALID
+* Status: VALID/CONFIRMED or INVALID
 * Line type: FIXED_LINE, MOBILE, VOIP etc.
 * Geolocation: Region and city
 * Phone number correction and re-formatting according to national and international standards
@@ -44,7 +44,7 @@ Please see the Frequently Asked Questions section.
 
 The plugin requires an API Key. Please sign up for an account at 
 https://proweblook.com/auth/signup (no credit card required). 
-The trial account comes with 100 free credits.
+The trial account comes with 10 free credits.
 
 == Frequently Asked Questions ==
 
@@ -80,5 +80,5 @@ If you need help, just send us a quick email to support@Proweblook.com.
 
 == Screenshots ==
 
-1. Plugin page.
+1. ![Plugin Page](https://proweblook.com/blog/wp-content/uploads/2024/01/Screenshot-2024-01-01-at-9.11.35 PM.png)
 

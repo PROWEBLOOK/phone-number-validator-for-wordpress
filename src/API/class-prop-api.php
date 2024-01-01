@@ -17,7 +17,7 @@ class PROP_API
 	 *
 	 * @var string
 	 */
-	protected $endpoint = 'https://phptest.chandankumarkum.repl.co/phone.php';
+	protected $endpoint = 'https://lookup.proweblook.com/api/v1/phonevalidation';
 
 	/**
 	 * The phone number to validate.
@@ -66,8 +66,7 @@ class PROP_API
 			'blocking' => TRUE,
 			'body'     => array(
 				'phone_number' => $this->get_phone(),
-				'APIKey'      => $this->get_apikey(),
-				'PluginVersion' => PROP_PLUGIN_CURRENT_VERSION
+				'api_key'      => $this->get_apikey()
 			)
 		);
 
