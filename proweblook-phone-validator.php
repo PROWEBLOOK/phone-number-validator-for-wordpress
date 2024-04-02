@@ -1,16 +1,18 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
 /**
  * The Proweblook phone validator start file. Here we do initialize the plugin.
  *
  * Plugin Name: Proweblook Phone Validator
- * Plugin URI: https://proweblook.com/
+ * Plugin URI: https://proweblook.com/phone-number-validator
  * Description: Phone validation plugin. Works with Contact Form 7, Gravity Forms, WPForms, Ninja Forms and WooCommerce. For other 3rd party forms: add class='propp-phone' to all input fields you want to validate.
- * Version: 1.0
+ * Version: 1.3
  * License: GPL2
  * Author: Proweblook
  * Author URI: https://proweblook.com/
- * Text Domain: Proweblook-phone-validator
+ * Text Domain: proweblook-phone-validator
  * Domain Path: /languages
  *
  * @package Plugins

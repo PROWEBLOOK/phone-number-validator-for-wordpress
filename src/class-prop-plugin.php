@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
 /**
  * The main plugin class
  *
@@ -319,11 +322,11 @@ class PROP_Plugin {
 	 * @return  void
 	 */
 	public function load_language( $domain ) {
-
 		load_plugin_textdomain(
 			$domain,
-			FALSE,
-			$this->plugin_path . 'languages'
+			false,
+			$this->plugin_path . 'languages/'
 		);
 	}
+	
 }

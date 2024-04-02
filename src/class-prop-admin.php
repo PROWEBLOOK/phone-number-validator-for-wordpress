@@ -1,6 +1,9 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
 
-/**
+/**x
  * Registers and handles the admin area.
  *
  * @package prop
@@ -124,7 +127,7 @@ class PROP_Admin
 			</div>
 
 			<div class="card propp-card" style="">
-				<?php echo $this->show_balance(); ?>
+				<?php echo esc_html($this->show_balance()); ?>
 			</div>
 
 		</div>
@@ -148,8 +151,14 @@ class PROP_Admin
 		$plugin = PROP_Plugin::get_instance();
 		$plugin_url = $plugin->get_plugin_url();
 		$min = (!$plugin->is_debug()) ? '.min' : '';
-		wp_register_style('propp_main_style', $plugin_url . 'assets/css/propp_style' . $min . '.css');
-		wp_register_script('propp_main_script', $plugin_url . 'assets/js/propp_script' . $min . '.js', array('jquery', 'underscore'), '1.0', TRUE);
+// Define your plugin version
+$plugin_version = '1.3';
+
+// Register the main stylesheet.
+wp_register_style('propp_main_style', $plugin_url . 'assets/css/propp_style' . $min . '.css', array(), $plugin_version);
+
+// Register the main script.
+wp_register_script('propp_main_script', $plugin_url . 'assets/js/propp_script' . $min . '.js', array('jquery'), $plugin_version, true);
 
 		$js_vars = $plugin->js_localization();
 		$js_vars['ul_tpl'] = '<% console.log( data ); %><li><span><%- data.status %></span><%- data.phone %></li>';
@@ -380,7 +389,7 @@ If you want to verify more than 10 numbers, please have a look at our pay-as-you
 
 		if (empty($api_key)) {
 			echo '<p>';
-			esc_html_e(__('API Key is not set. Please configure it in the settings.', 'Proweblook-phone-validator'));
+			esc_html_e('API Key is not set. Please configure it in the settings.', 'Proweblook-phone-validator');
 			echo '</p>';
 			return;
 		}
@@ -400,9 +409,15 @@ If you want to verify more than 10 numbers, please have a look at our pay-as-you
 			$response_data = json_decode(wp_remote_retrieve_body($result), true);
 			if (isset($response_data['balance'])) {
 				echo '<p>';
-				printf(__('Remaining Balance: %d', 'Proweblook-phone-validator'), $response_data['balance']);
+				// translators: %d is a placeholder for the remaining balance amount.
+				printf(
+					'<span>%s</span>',
+					esc_html(sprintf(__('Remaining Balance: %d', 'Proweblook-phone-validator'), $response_data['balance']))
+				);
 				echo '</p>';
 			}
 		}
+		
+		
 	}
 }

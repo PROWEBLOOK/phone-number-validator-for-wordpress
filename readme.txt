@@ -1,9 +1,9 @@
 ===Proweblook Phone Validator===
 Contributors: Proweblook
-Tags: phone, validation, contact form, contact form 7, ninja forms, wpforms, wp forms, gravity forms, phone validation, woocommerce
+Tags: contact form 7, ninja forms, wpforms, gravity forms, phone validation
 Requires at least: 3.0.1
-Tested up to: 6.2
-Stable tag: 4.1
+Tested up to: 6.4
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,9 @@ https://proweblook.com/auth/signup
 5. Copy and paste your API key to the Settings section of the Administrator Dashboard.
 
 If you need help, just send us a quick email to support@Proweblook.com.
+
+Terms and Condition: https://proweblook.com/generic/terms_conditions
+
 
 == Screenshots ==
 
